@@ -1,0 +1,39 @@
+{% extends "layouts/base.html" %}  <!-- Extiende la plantilla base.html -->
+
+{% block content %}  <!-- Define un bloque de contenido -->
+
+{% comment %}  Esta plantilla es para agregar una nota a un contacto. {% endcomment %}
+
+<div class="container">  <!-- Contenedor principal -->
+    <div class="row">  <!-- Fila para dividir el contenido en columnas -->
+        <div class="col-md-6">  <!-- Columna para el formulario de inserción de nota -->
+            <div class="form-content">  <!-- Contenido del formulario -->
+                <div class="form-container"  style="padding-top: 25px;">  <!-- Contenedor del formulario -->
+                    <h2>Agrega una nota</h2>  <!-- Título del formulario -->
+                    <form action="{% url 'insertNote' %}" method="POST">  <!-- Formulario para enviar la nota -->
+                        {% csrf_token %}  <!-- Token CSRF para protección contra ataques CSRF -->
+                        <div class="form-group"  style="padding-top: 15px;">  <!-- Grupo de formulario para el ID -->
+                            <label for="txtId">ID:</label>  <!-- Etiqueta para el campo de ID -->
+                            <input type="text" id="txtId" value="{{resultados.id}}" name="txtId" class="form-control" readonly required>  <!-- Campo de entrada para el ID -->
+                        </div>
+                        <div class="form-group"  style="padding-top: 15px;">  <!-- Grupo de formulario para el título -->
+                            <label for="txtTitulo">Titulo:</label>  <!-- Etiqueta para el campo de título -->
+                            <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Ej: Recordar reunión" required>  <!-- Campo de entrada para el título -->
+                        </div>
+                        <div class="form-group"  style="padding-top: 15px;">  <!-- Grupo de formulario para la nota -->
+                            <textarea class="form-control" name="txtNota" id="txtNota" cols="30" rows="10" placeholder="Escribe tu nota aquí..." required></textarea>  <!-- Área de texto para la nota -->
+                        </div>
+                        <div class="form-group" style="padding-top: 20px;">  <!-- Grupo de formulario para el botón de guardar -->
+                            <button type="submit" class="btn btn-primary" style="background-color: #7469B6;">Guardar</button>  <!-- Botón para enviar el formulario -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">  <!-- Columna para la imagen -->
+            <img src="/static/img/agregar.jpg" class="img-fluid" alt="">  <!-- Imagen para mostrar visualmente -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}  <!-- Fin del bloque de contenido -->

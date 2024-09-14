@@ -1,0 +1,65 @@
+{% extends "layouts/base.html" %}  <!-- Se extiende la plantilla base.html -->
+
+{% block content %}  <!-- Define un bloque de contenido -->
+
+{% comment %}  Esta plantilla es la pagina de inicio. {% endcomment %}
+
+<section class="hero">
+    <div class="container text-center">
+        <div class="hero-content" style="padding-top: 13px;">
+            <h1 class="hero-title">¡Ten el control de tus contactos con FastContact!</h1>
+            <p class="hero-description">Hacemos que gestionar tus contactos sea más fácil. Crea tus propias notas de manera eficiente y mantén el control de tus contactos.</p>
+        </div>
+    </div>
+</section>
+
+<div class="container my-5 text-center"> <!-- Contenedor principal -->
+    <div class="row justify-content-center">
+        <div class="card mx-3" style="width: 18rem;"> <!-- Tarjeta para "Mis Notas" -->
+            <img src="static/img/notas.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Mis Notas</h5>
+                <p class="card-text">En esta sección, puedes ver tus notas personalizadas asociadas a tus contactos.</p>
+                <a href="{% url 'nota' %}" class="btn btn-primary" style="background-color: #7469B6;">Ir <i class="fa-solid fa-arrow-right-long" style="color: #fcfcfc;"></i></a>
+            </div>
+        </div>
+
+        <div class="card mx-3" style="width: 18rem;"> <!-- Tarjeta para "Mis Contactos" -->
+            <img src="static/img/hero.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Mis Contactos</h5>
+                <p class="card-text">Agrega, actualiza o elimina información de acuerdo a tus necesidades.</p>
+                <a href="{% url 'select' %}" class="btn btn-primary" style="background-color: #7469B6;">Ir <i class="fa-solid fa-arrow-right-long" style="color: #fcfcfc;"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<center>
+    {% if vercontactos  %}  
+        <footer class="footer mt-auto py-1 bg-light">
+            <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                <h2 style= "color: black; padding: 5px;">FastContact</h2>
+                <p>&copy; Todos los derechos reservados.</p>
+                    <a href="#" class="text-decoration-none m-1"><i class="fab fa-facebook-f" style="color: #7469B6;" ></i></a>
+                    <a href="#" class="text-decoration-none m-1"><i class="fab fa-twitter" style="color: #7469B6;" ></i></a>
+                    <a href="#" class="text-decoration-none m-1"><i class="fab fa-instagram" style="color: #7469B6;" ></i></a>
+                    <a href="#" class="text-decoration-none m-1"><i class="fab fa-linkedin-in" style="color: #7469B6;" ></i></a>
+                </div>
+            </div>
+            </div>
+        </footer>
+    {% else %}
+<div class="hero-buttons mt-4"> <!-- Botones de acción para iniciar sesión o registrarse -->
+    <a href="{% url 'signin' %}" class="btn btn-primary btn-lg">Iniciar Sesión</a>
+    <a href="{% url 'signup' %}" class="btn btn-info btn-lg">Registrarse</a>
+</div>
+</center>
+
+<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+
+{% endif %}
+
+{% endblock %}  <!-- Fin del bloque de contenido -->

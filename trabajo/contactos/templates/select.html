@@ -1,0 +1,103 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+{% comment %}  En esta plantilla se listan todos los conatctos y se pueden filtrar por el nombre {% endcomment %}
+
+<div>
+    <div>
+        <div class="container" style="padding-top: 30px;" >
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    {% comment %} Ruta al formulario de agregar un contacto: {% endcomment %}
+                    <a href="{% url 'verinsert' %}" class="btn btn-primary" style="background-color: #7469B6;"><i class="fa-solid fa-plus" style="color: #fcfcfc;"></i> Agregar contacto</a> 
+                    <div class="buscar ml-auto">
+                        <form class="form-inline" action="{% url 'select' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-outline-info"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    {% if nombre_busqueda %}  <!-- Verifica si hay una búsqueda de nombre. -->
+    <div class="container text-center">
+        <!-- Encabezado que muestra los resultados de la búsqueda. -->
+        <h3 style="padding-top: 30px;">Resultados de la búsqueda para "{{ nombre_busqueda }}"</h3>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            {% if contactos_encontrados %} <!-- Verifica si se encontraron contactos. -->
+                {% for contacto in contactos_encontrados %}  <!-- Itera sobre los contactos encontrados. -->
+                    <div class="col-md-4">  <!-- Columna para mostrar cada contacto. -->
+                        <div class="card mb-3"> <!-- Tarjeta con los detalles del contacto. -->
+                            <div class="card-body">
+                                <!-- Título de la tarjeta que muestra el nombre del contacto. -->
+                                <h5 class="card-title"><i class="fa-regular fa-address-book" style="color: #B197FC;"></i> {{contacto.nombre }}</h5>
+                                <!-- Información sobre la empresa del contacto. -->
+                                <p class="card-text">Empresa: {{ contacto.empresa }}</p>
+                                 <!-- Información sobre el correo electrónico del contacto. -->
+                                <p class="card-text">Correo: {{ contacto.correo }}</p>
+                                <!-- Información sobre el teléfono del contacto. -->
+                                <p class="card-text">Telefono: {{ contacto.telefono }}</p>
+                                <!-- Información sobre la dirección del contacto. -->
+                                <p class="card-text">Direccion: {{ contacto.direccion }}</p>
+                                <!-- Botón para editar el contacto. -->
+                                <a href="{% url 'formActualizar' contacto.id %}" class="btn btn-info" ><i class="fas fa-edit"></i> Editar</a>
+                                <!-- Botón para eliminar el contacto. -->
+                                <a href="{% url 'delete' contacto.id %}" class="btn btn-primary" style="background-color: #5755FE;" ><i class="fas fa-trash-alt"></i> Eliminar</a>
+                                <!-- Botón para agregar una nota al contacto. -->
+                                <a href="{% url 'formNota' contacto.id %}" class="btn btn-primary" style="background-color: #4B0082;" >Agregar Nota</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %} <!-- Final de la iteración. -->
+            {% else %}
+                <div class="container text-center">
+                    <!-- Si no se encuentran contactos, muestra un mensaje. -->
+                    <p>No se encontraron contactos.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% endif %}  <!-- Fin de la estructura condicional. -->
+
+    <div class="container">
+        <div class="row">
+            {% for contacto in contactos %} <!-- Itera sobre todos los contactos. -->
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <!-- Título de la tarjeta que muestra el nombre del contacto. -->
+                            <h5 class="card-title"><i class="fa-regular fa-address-book" style="color: #B197FC;"></i> {{contacto.nombre }}</h5>
+                            <!-- Información sobre la empresa del contacto. -->
+                            <p class="card-text">Empresa: {{ contacto.empresa }}</p>
+                             <!-- Información sobre el correo electrónico del contacto. -->
+                            <p class="card-text">Correo: {{ contacto.correo }}</p>
+                            <!-- Información sobre el teléfono del contacto. -->
+                            <p class="card-text">Telefono: {{ contacto.telefono }}</p>
+                            <!-- Información sobre la dirección del contacto. -->
+                            <p class="card-text">Direccion: {{ contacto.direccion }}</p>
+                            <!-- Botón para editar el contacto. -->
+                            <a href="{% url 'formActualizar' contacto.id %}" class="btn btn-info" ><i class="fas fa-edit"></i> Editar</a>
+                            <!-- Botón para eliminar el contacto. -->
+                            <a href="{% url 'delete' contacto.id %}" class="btn btn-primary" style="background-color: #5755FE;" ><i class="fas fa-trash-alt"></i> Eliminar</a>
+                            <!-- Botón para agregar una nota al contacto. -->
+                            <a href="{% url 'formNota' contacto.id %}" class="btn btn-primary" style="background-color: #4B0082;" >Agregar Nota</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} <!-- Final de la iteración. -->
+        </div>
+    </div>
+</div>
+
+{% endblock %} <!-- Fin del bloque de contenido -->

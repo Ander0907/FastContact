@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}  <!-- Extiende la plantilla base.html -->
+
+{% block content %}  <!-- Define un bloque de contenido -->
+
+{% comment %} # Esta plantilla es para listar notas de los contactos. {% endcomment %}
+<div class="container text-center">
+    <h1>Tus notas</h1>
+</div>
+    <div class="container">  <!-- Contenedor principal -->
+        <div class="row">  <!-- Fila para dividir el contenido en columnas -->
+            {% for contacto in resultados %}  <!-- Itera sobre los resultados de los contactos -->
+                <div class="col-md-4">  <!-- Columna para mostrar cada contacto -->
+                    <div class="card mb-3">  <!-- Tarjeta de Bootstrap con margen inferior -->
+                        <div class="card-body">  <!-- Cuerpo de la tarjeta -->
+                            <h5 class="card-title"><i class="fa-regular fa-address-book" style="color: #B197FC;"></i> {{ contacto.nombre }}</h5>  <!-- Título del contacto con icono -->
+                            <p class="card-text">{{ contacto.titulo_nota }}</p>  <!-- Texto de la nota del contacto -->
+                            <p class="card-text">Nota: {{ contacto.notas }}</p>  <!-- Texto de la nota -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}  <!-- Fin del bloque de contenido -->

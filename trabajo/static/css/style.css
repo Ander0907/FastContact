@@ -1,0 +1,27 @@
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.card-body {
+    padding: 40px;
+}
+  
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+  
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+  
+.btn-lg {
+    padding: 15px 30px;
+    font-size: 1.25rem;
+}
+  
+.container {
+    margin-top: 50px;
+}
