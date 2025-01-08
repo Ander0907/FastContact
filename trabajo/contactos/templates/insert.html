@@ -1,48 +1,52 @@
-{% extends "layouts/base.html" %}  <!-- Extiende la plantilla base.html -->
+{% extends "layouts/base.html" %}
 
-{% block content %}  <!-- Define un bloque de contenido -->
+{% block content %}
 
 {% comment %}  Esta plantilla es un fromulario para agregar un contacto. {% endcomment %}
 
-<div class="container">  <!-- Contenedor principal -->
-    <div class="row">  <!-- Fila para dividir el contenido en columnas -->
-        <div class="col-md-6">  <!-- Columna para el formulario de registro de contacto -->
-            <div class="form-content">  <!-- Contenido del formulario -->
-                <div class="form-container"  style="padding-top: 25px;">  <!-- Contenedor del formulario -->
-                    <h2>Registrar un Contacto</h2>  <!-- Título del formulario -->
-                    <form action="{% url 'insert' %}" method="POST">  <!-- Formulario para enviar los datos del nuevo contacto -->
-                        {% csrf_token %}  <!-- Token CSRF para protección contra ataques CSRF -->
-                        <div class="form-group"  style="padding-top: 15px;">  <!-- Grupo de formulario para el nombre -->
-                            <label for="txtNombre">Nombre:</label>  <!-- Etiqueta para el campo de nombre -->
-                            <input type="text" id="txtNombre" name="txtNombre" class="form-control" required>  <!-- Campo de entrada para el nombre -->
+<!-- Contenedor principal -->
+<div class="container">
+    <!-- Fila para dividir el contenido en columnas -->
+    <div class="row">
+        <!-- Columna para el formulario de registro de contacto -->
+        <div class="col-md-6">
+            <div class="form-content">
+                <div class="form-container"  style="padding-top: 25px;">
+                    <h2>Registrar un Contacto</h2>
+                    <form action="{% url 'insert' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group"  style="padding-top: 15px;">
+                            <label for="txtNombre">Nombre:</label>
+                            <input type="text" id="txtNombre" name="txtNombre" class="form-control" required>
                         </div>
-                        <div class="form-group"  style="padding-top: 5px;">  <!-- Grupo de formulario para la empresa -->
-                            <label for="txtEmpresa">Empresa:</label>  <!-- Etiqueta para el campo de empresa -->
-                            <input type="text" id="txtEmpresa" name="txtEmpresa" class="form-control" required>  <!-- Campo de entrada para la empresa -->
+                        <div class="form-group"  style="padding-top: 5px;">  
+                            <label for="txtEmpresa">Empresa:</label>
+                            <input type="text" id="txtEmpresa" name="txtEmpresa" class="form-control" required>
                         </div>
-                        <div class="form-group"  style="padding-top: 5px;">  <!-- Grupo de formulario para el correo -->
-                            <label for="txtCorreo">Correo:</label>  <!-- Etiqueta para el campo de correo -->
-                            <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"  required>  <!-- Campo de entrada para el correo -->
+                        <div class="form-group"  style="padding-top: 5px;">
+                            <label for="txtCorreo">Correo:</label>
+                            <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"  required>
                         </div>
-                        <div class="form-group"  style="padding-top: 5px;">  <!-- Grupo de formulario para el teléfono -->
-                            <label for="txtTelefono">Telefono:</label>  <!-- Etiqueta para el campo de teléfono -->
-                            <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" required>  <!-- Campo de entrada para el teléfono -->
+                        <div class="form-group"  style="padding-top: 5px;">
+                            <label for="txtTelefono">Telefono:</label>
+                            <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" required>
                         </div>
-                        <div class="form-group"  style="padding-top: 5px;">  <!-- Grupo de formulario para la dirección -->
-                            <label for="txtDireccion">Dirección:</label>  <!-- Etiqueta para el campo de dirección -->
-                            <input type="text" id="txtDireccion" name="txtDireccion" class="form-control" required>  <!-- Campo de entrada para la dirección -->
+                        <div class="form-group"  style="padding-top: 5px;">
+                            <label for="txtDireccion">Dirección:</label>
+                            <input type="text" id="txtDireccion" name="txtDireccion" class="form-control" required>
                         </div>
-                        <div class="form-group" style="padding-top: 20px;">  <!-- Grupo de formulario para el botón de guardar -->
-                            <button type="submit" class="btn btn-primary" style="background-color: #7469B6;">Guardar</button>  <!-- Botón para enviar el formulario -->
+                        <div class="form-group" style="padding-top: 20px;">
+                            <button type="submit" class="btn btn-primary" style="background-color: #7469B6;">Guardar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">  <!-- Columna para la imagen -->
-            <img src="/static/img/agregar.jpg" class="img-fluid" alt="">  <!-- Imagen para mostrar visualmente -->
+        <!-- Columna para la imagen -->
+        <div class="col-md-6">
+            <img src="/static/img/agregar.jpg" class="img-fluid" alt="">
         </div>
     </div>
 </div>
 
-{% endblock %}  <!-- Fin del bloque de contenido -->
+{% endblock %}

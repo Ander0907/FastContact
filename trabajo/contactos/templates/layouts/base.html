@@ -1,4 +1,4 @@
-{% load static %} <!-- Carga de archivos estáticos para usar en la plantilla. -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,16 +15,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  <!-- Script de Bootstrap para funcionalidades adicionales. -->
-     <!-- Título de la página, con posibilidad de ser sobrescrito por bloques hijos. -->
     <title>{% block title %}Contactos{% endblock  %}</title>
     <!-- Bloque para definir estilos adicionales en las plantillas hijas. -->
     {% block style %}{% endblock  %}
 </head>
 <body>
-    {% block navbar %}   <!-- Bloque para definir la barra de navegación. -->
+    <!-- Bloque para definir la barra de navegación. -->
+    {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #7469B6;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">FastContact</a>  <!-- Enlace al inicio -->
+            <a class="navbar-brand" href="/">FastContact</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -62,9 +62,11 @@
             </div>
         </div>
     </nav>
-    {% endblock %}   <!-- Termina el bloque de la barra de navegación. -->
+    <!-- Termina el bloque de la barra de navegación. -->
+    {% endblock %}
   
-    {% block content %}{% endblock  %} <!-- Bloque para el contenido principal, que puede ser sobrescrito por bloques hijos. -->
+    <!-- Bloque para el contenido principal, que puede ser sobrescrito por bloques hijos. -->
+    {% block content %}{% endblock  %}
     
 </body>
 </html>

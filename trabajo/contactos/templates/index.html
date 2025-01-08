@@ -1,6 +1,6 @@
-{% extends "layouts/base.html" %}  <!-- Se extiende la plantilla base.html -->
+{% extends "layouts/base.html" %}
 
-{% block content %}  <!-- Define un bloque de contenido -->
+{% block content %}
 
 {% comment %}  Esta plantilla es la pagina de inicio. {% endcomment %}
 
@@ -13,9 +13,11 @@
     </div>
 </section>
 
-<div class="container my-5 text-center"> <!-- Contenedor principal -->
+<!-- Contenedor principal -->
+<div class="container my-5 text-center">
     <div class="row justify-content-center">
-        <div class="card mx-3" style="width: 18rem;"> <!-- Tarjeta para "Mis Notas" -->
+        <!-- Tarjeta para "Mis Notas" -->
+        <div class="card mx-3" style="width: 18rem;">
             <img src="static/img/notas.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Mis Notas</h5>
@@ -24,7 +26,8 @@
             </div>
         </div>
 
-        <div class="card mx-3" style="width: 18rem;"> <!-- Tarjeta para "Mis Contactos" -->
+        <!-- Tarjeta para "Mis Contactos" -->
+        <div class="card mx-3" style="width: 18rem;">
             <img src="static/img/hero.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Mis Contactos</h5>
@@ -35,10 +38,9 @@
     </div>
 </div>
 
-<center>
-    {% if vercontactos  %}  
-        <footer class="footer mt-auto py-1 bg-light">
-            <div class="container">
+{% if vercontactos  %}  
+    <footer class="footer mt-auto py-1 bg-light">
+        <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                 <h2 style= "color: black; padding: 5px;">FastContact</h2>
@@ -49,17 +51,16 @@
                     <a href="#" class="text-decoration-none m-1"><i class="fab fa-linkedin-in" style="color: #7469B6;" ></i></a>
                 </div>
             </div>
-            </div>
-        </footer>
-    {% else %}
-<div class="hero-buttons mt-4"> <!-- Botones de acción para iniciar sesión o registrarse -->
-    <a href="{% url 'signin' %}" class="btn btn-primary btn-lg">Iniciar Sesión</a>
-    <a href="{% url 'signup' %}" class="btn btn-info btn-lg">Registrarse</a>
-</div>
-</center>
+        </div>
+    </footer>
+{% else %}
+    <div class="hero-buttons mt-4"> <!-- Botones de acción para iniciar sesión o registrarse -->
+        <a href="{% url 'signin' %}" class="btn btn-primary btn-lg">Iniciar Sesión</a>
+        <a href="{% url 'signup' %}" class="btn btn-info btn-lg">Registrarse</a>
+    </div>
 
-<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
 
 {% endif %}
 
-{% endblock %}  <!-- Fin del bloque de contenido -->
+{% endblock %}

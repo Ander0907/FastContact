@@ -9,50 +9,41 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <!-- Formulario para actualizar un contacto -->
       <div class="form-content">
         <div class="form-container" style="padding-top: 25px;">
           <h2>Actualizar un Contacto</h2>
-          <!-- Formulario para enviar los datos al servidor -->
           <form action="{% url 'update' %}" method="POST">
             {% csrf_token %}
-            <!-- Campo de entrada para el ID del contacto, solo de lectura -->
             <div class="form-group" style="padding-top: 15px;">
               <label for="txtId">ID:</label>
               <input type="text" id="txtId" name="txtId" class="form-control" 
                      value="{{resultados.id}}" readonly required>
             </div>
-            <!-- Campo de entrada para el nombre del contacto -->
             <div class="form-group" style="padding-top: 15px;">
               <label for="txtNombre">Nombre:</label>
               <input type="text" id="txtNombre" name="txtNombre" class="form-control" 
                      value="{{resultados.nombre}}" required>
             </div>
-            <!-- Campo de entrada para la empresa del contacto -->
             <div class="form-group" style="padding-top: 5px;">
               <label for="txtEmpresa">Empresa:</label>
               <input type="text" id="txtEmpresa" name="txtEmpresa" class="form-control" 
                      value="{{resultados.empresa}}" required>
             </div>
-            <!-- Campo de entrada para el correo electrónico del contacto -->
             <div class="form-group" style="padding-top: 5px;">
               <label for="txtCorreo">Correo:</label>
               <input type="text" id="txtCorreo" name="txtCorreo" class="form-control" 
                      value="{{resultados.correo}}" required>
             </div>
-            <!-- Campo de entrada para el teléfono del contacto -->
             <div class="form-group" style="padding-top: 5px;">
               <label for="txtTelefono">Teléfono:</label>
               <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" 
                      value="{{resultados.telefono}}" required>
             </div>
-            <!-- Campo de entrada para la dirección del contacto -->
             <div class="form-group" style="padding-top: 5px;">
               <label for="txtDireccion">Dirección:</label>
               <input type="text" id="txtDireccion" name="txtDireccion" class="form-control" 
                      value="{{resultados.direccion}}" required>
             </div>
-            <!-- Botón de envío para el formulario -->
             <div class="form-group" style="padding-top: 20px;">
               <button type="submit" class="btn btn-primary" style="background-color: #7469B6;">
                 Guardar
@@ -63,7 +54,6 @@
       </div>
     </div>
     <div class="col-md-6" style="padding-top: 35px;">
-      <!-- Imagen de fondo -->
       <img src="/static/img/actualizar.jpg" class="img-fluid" alt="">
     </div>
   </div>
