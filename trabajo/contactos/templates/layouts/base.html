@@ -35,7 +35,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contactos</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'verinsert' %}">Nuevo Contacto</a></li>
+                            <li><a class="dropdown-item" href="{% url 'form-insert' %}">Nuevo Contacto</a></li>
                             <li><a class="dropdown-item" href="{% url 'select' %}" >Mis contactos</a></li>
                             <li><a class="dropdown-item" href="{% url 'nota' %}">Mis notas</a></li>
                         </ul>
@@ -46,10 +46,10 @@
                     <!-- De lo contrario, muestra botones para registrarse e iniciar sesión. -->
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/signup">Registrarse</a>
+                        <a class="nav-link" href="/sign-up">Registrarse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/signin">Iniciar Sesión</a>
+                        <a class="nav-link" href="/sign-in">Iniciar Sesión</a>
                     </li>
                     {% endif %}
                 </ul>

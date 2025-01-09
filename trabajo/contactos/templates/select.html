@@ -9,7 +9,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     {% comment %} Ruta al formulario de agregar un contacto: {% endcomment %}
-                    <a href="{% url 'verinsert' %}" class="btn btn-primary" style="background-color: #7469B6;"><i class="fa-solid fa-plus" style="color: #fcfcfc;"></i> Agregar contacto</a> 
+                    <a href="{% url 'form-insert' %}" class="btn btn-primary" style="background-color: #7469B6;"><i class="fa-solid fa-plus" style="color: #fcfcfc;"></i> Agregar contacto</a> 
                     <div class="buscar ml-auto">
                         <form class="form-inline" action="{% url 'select' %}" method="POST">
                             {% csrf_token %}
@@ -48,9 +48,9 @@
                                     <p class="card-text">Telefono: {{ contacto.telefono }}</p>
                                     <p class="card-text">Direccion: {{ contacto.direccion }}</p>
 
-                                    <a href="{% url 'formActualizar' contacto.id %}" class="btn btn-info" ><i class="fas fa-edit"></i> Editar</a>
+                                    <a href="{% url 'form-actualizar' contacto.id %}" class="btn btn-info" ><i class="fas fa-edit"></i> Editar</a>
                                     <a href="{% url 'delete' contacto.id %}" class="btn btn-primary" style="background-color: #5755FE;" ><i class="fas fa-trash-alt"></i> Eliminar</a>
-                                    <a href="{% url 'formNota' contacto.id %}" class="btn btn-primary" style="background-color: #4B0082;" >Agregar Nota</a>
+                                    <a href="{% url 'formNota' contacto.id %}" class="btn btn-primary" style="background-color: #4B0082;" ><i class="fa-solid fa-plus" style="color: #fcfcfc;"></i>Agregar Nota</a>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                             <p class="card-text">Correo: {{ contacto.correo }}</p>
                             <p class="card-text">Telefono: {{ contacto.telefono }}</p>
                             <p class="card-text">Direccion: {{ contacto.direccion }}</p>
-                            <a href="{% url 'formActualizar' contacto.id %}" class="btn btn-info" ><i class="fas fa-edit"></i> Editar</a>
+                            <a href="{% url 'form-actualizar' contacto.id %}" class="btn btn-info" ><i class="fas fa-edit"></i> Editar</a>
                             <a href="{% url 'delete' contacto.id %}" class="btn btn-primary" style="background-color: #5755FE;" ><i class="fas fa-trash-alt"></i> Eliminar</a>
                             <a href="{% url 'formNota' contacto.id %}" class="btn btn-primary" style="background-color: #4B0082;" >Agregar Nota</a>
                         </div>

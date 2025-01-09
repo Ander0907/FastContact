@@ -23,14 +23,14 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     # Rutas principales
     path('', views.home, name='home'),
-    path('signup/', views.signup, name='signup'),
-    path('signin/', views.signin, name='signin'),
+    path('sign-up/', views.sign_up, name='sign-up'),
+    path('sign-in/', views.sign_in, name='sign-in'),
     path('logout/', views.sign_off, name='logout'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='mensaje.html'), name='mensaje'),
 
     # Rutas relacionadas con la gestión de contactos
-    path('verinsert/', views.form_insert, name='verinsert'),
-    path('formActualizar/<id>', views.form_update, name='formActualizar'),
+    path('form-insert/', views.form_insert, name='form-insert'),
+    path('form-actualizar/<id>', views.form_update, name='form-actualizar'),
     path('formNota/<id>', views.form_note, name='formNota'),
 
     # Rutas para operaciones CRUD de contactos.
@@ -45,3 +45,4 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 ]
+

@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
 # Registro de usario
-def signup(request):
+def sign_up(request):
     # Muestra la página de registro de usuarios si la solicitud es GET.
     if request.method == 'GET':
         return render(request, 'signup.html', { 
@@ -39,7 +39,7 @@ def signup(request):
         })
 
 # Inicio de sesión:
-def signin(request):
+def sign_in(request):
     # Muestra la página de inicio de sesión si la solicitud es GET.
     if request.method == 'GET':
         return render(request, 'signin.html')
@@ -63,7 +63,7 @@ def home(request):
     # Valida si el usuario está autenticado.
     if request.user.is_authenticated:
         # Crea un diccionario con parámetros para pasar a la plantilla.
-        parametros = {'vercontactos' : True, 'usuario': request.user.username}
+        parametros = {'ver_contactos' : True, 'usuario': request.user.username}
     else:
         parametros = {}
     # Renderiza la plantilla de inicio con los parámetros adecuados según el estado de autenticación del usuario.

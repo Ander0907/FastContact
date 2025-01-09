@@ -38,7 +38,8 @@
     </div>
 </div>
 
-{% if vercontactos  %}  
+{% if ver_contactos  %}  
+    <!-- Footer -->
     <footer class="footer mt-auto py-1 bg-light">
         <div class="container">
             <div class="row">
@@ -54,13 +55,13 @@
         </div>
     </footer>
 {% else %}
-    <div class="hero-buttons mt-4"> <!-- Botones de acción para iniciar sesión o registrarse -->
-        <a href="{% url 'signin' %}" class="btn btn-primary btn-lg">Iniciar Sesión</a>
-        <a href="{% url 'signup' %}" class="btn btn-info btn-lg">Registrarse</a>
+    <!-- Botones de acción para iniciar sesión o registrarse -->
+    <div class="hero-buttons mt-4" style="display: flex; justify-content: center; gap: 10px;">
+        <a href="{% url 'sign-in' %}" class="btn btn-primary btn-lg">Iniciar Sesión</a>
+        <a href="{% url 'sign-up' %}" class="btn btn-info btn-lg">Registrarse</a>
     </div>
 
     <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
-
 {% endif %}
 
 {% endblock %}
